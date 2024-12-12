@@ -3,6 +3,7 @@ import authRoutes from "./routes/auth.routes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import roomsRoutes from "./routes/rooms.routes.js";
+import reservRoutes from "./routes/reservations.routes.js";
 
 const app = express();
 
@@ -20,4 +21,5 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/rooms", roomsRoutes);
+app.use("/api/reservs",reservRoutes);
 export default app;

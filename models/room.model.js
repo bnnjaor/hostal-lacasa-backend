@@ -11,15 +11,6 @@ const roomSchema = new Schema({
     type: Number,
     required: true,
   },
-  available: {
-    type: Boolean,
-    default: true,
-  },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
   images: [
     {
       public_id: String,
@@ -34,6 +25,7 @@ const roomSchema = new Schema({
     type: Number,
     required: true,
   },
+  bookedDates: [Date], // Lista de fechas ocupadas
 });
 
 const Room = mongoose.model("Room", roomSchema);

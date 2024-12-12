@@ -1,33 +1,29 @@
-import mongoose from "mongoose"
-const Schema = mongoose.Schema
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const reservSchema = new Schema({
-    room: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Room',
-        required: true
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+const reservSchema = new Schema(
+  {
+    roomId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Room",
+      required: true,
     },
     startDate: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     endDate: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
-    totalPrice: {
-        type: Number,
-        required: true
-    }
-    
-    
-})
+    clientName: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-const Reserv = mongoose.model('Reserv', reservSchema)
+const Reservation = mongoose.model("Reservation", reservSchema);
 
-export default Reserv
+export default Reservation;
