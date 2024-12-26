@@ -88,20 +88,6 @@ export const logout = (req, res) => {
   return res.sendStatus(200);
 };
 
-export const profile = async (req, res) => {
-  const userFound = await User.findById(req.user.id);
-
-  if (!userFound)
-    return res.status(400).json({ ok: false, message: "Usuario no encontado" });
-
-  return res.status(200).json({
-    id: userFound._id,
-    email: userFound.email,
-    username: userFound.username,
-    createdAt: userFound.createdAt,
-    updatedAt: userFound.updatedAt,
-  });
-};
 
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;

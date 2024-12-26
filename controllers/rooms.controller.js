@@ -14,7 +14,7 @@ export const getAllRooms = async (req, res) => {
 
 //funciones para administradores
 export const createRoom = async (req, res) => {
-  let { number, price, description } = req.body;
+  let { number, price, description,people } = req.body;
 
   number = parseInt(number, 10);
   price = parseFloat(price);
@@ -28,6 +28,7 @@ export const createRoom = async (req, res) => {
       price,
       description,
       user: req.user.id,
+      people,
       images, // Inicializa el campo `images` como un arreglo vacío
     });
 
@@ -133,7 +134,7 @@ export const updateRoom = async (req, res) => {
 //getRoom osea obtener una sola habitacion seria para poder obtener la habitacion a actualizar o eliminar
 export const getRoom = async (req, res) => {
   try {
-    const room = await Room.findById(req.params.id).populate("user");
+    const room = await Room.findById(req.params.id);
     if (!room)
       return res
         .status(404)

@@ -8,7 +8,7 @@ const router = Router();
 router.post("/register", validateSchema(registerShcema), register);
 router.post("/login", validateSchema(loginSchema),login);
 router.post('/logout', logout)
-router.get('/verify', verifyToken)
+// router.get('/verify', verifyToken)
 
 
 export default router;
